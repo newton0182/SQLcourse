@@ -49,6 +49,29 @@ WHERE
 
 
 
+-- Filter dates (compare)
+SELECT 
+    CustomerID, SalesOrderID, OrderDate
+FROM
+    Sales.SalesOrderHeader
+WHERE OrderDate > '2011-07-05'; -- >=, != etc
+
+
+
+
+
+-- Filter row where alphabetically is bigger than just 'M'
+SELECT 
+    BusinessEntityID, FirstName
+FROM 
+    Person.Person
+WHERE 
+    FirstName > 'M';    
+
+
+
+
+
 -- Alias and order by
 SELECT
     FirstName, 
@@ -70,6 +93,9 @@ SELECT
     DATEADD(week, 1, GETDATE())  AS "DagensDatoPlusUge"
 FROM
     Person.Person;
+
+
+
 
 
 
