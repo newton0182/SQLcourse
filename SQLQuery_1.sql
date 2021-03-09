@@ -97,7 +97,25 @@ FROM
 
 
 
+-- CONCAT 1 (NULLs appear when only title is NULL)
+SELECT Title + ' ' + FirstName + ' ' + MiddleName + ' ' + LastName AS [Title and name]
+FROM Person.Person;
 
+
+
+
+
+-- CONCAT 2 (Extra spaces appear when one of them is NULL)
+SELECT ISNULL(Title, '') + ' ' + FirstName + ' ' + ISNULL(MiddleName, '') + ' ' + LastName AS [Title and name]
+FROM Person.Person;
+
+
+
+
+
+-- CONCAT 3 (Problem with NULL and spaces is solved)
+SELECT ISNULL(Title + ' ', '') + FirstName + ' ' + ISNULL(MiddleName + ' ', '') + LastName AS [Title and name]
+FROM Person.Person;
 
 
 
