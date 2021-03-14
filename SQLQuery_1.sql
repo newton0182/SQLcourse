@@ -266,3 +266,15 @@ WHERE MyDate >= '2009-01-02' AND MyDate < '2009-01-04';
 
 
 
+-- Create a new database called 'testDatabaseDimi'
+-- Connect to the 'master' database to run this snippet
+USE master
+GO
+-- Create the new database if it does not exist already
+IF NOT EXISTS (
+    SELECT [name]
+        FROM sys.databases
+        WHERE [name] = N'testDatabaseDimi'
+)
+CREATE DATABASE testDatabaseDimi
+GO
